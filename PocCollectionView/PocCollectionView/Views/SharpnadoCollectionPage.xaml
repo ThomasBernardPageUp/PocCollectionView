@@ -1,12 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:sho="http://sharpnado.com"
              x:Class="PocCollectionView.Views.SharpnadoCollectionPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Margin="20" Text="This is a sharpnado collection view" FontSize="Title" HorizontalOptions="CenterAndExpand" />
+
+            <Label Margin="20, 0" Text="{Binding Users.Count, StringFormat='You found {0} results :'}"></Label>
+            <sho:CollectionView ItemsSource="{Binding Users}">
+                <sho:CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <sho:DraggableViewCell>
+                            <ContentView>
+                                <Label Text="{Binding Id}"></Label>
+                            </ContentView>
+                        </sho:DraggableViewCell>
+                    </DataTemplate>
+                </sho:CollectionView.ItemTemplate>
+            </sho:CollectionView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -15,7 +15,7 @@ namespace PocCollectionView.Models
 
             for (int i = 0; i < numberOfUser; i++)
             {
-                var user = new UserEntity(i, _names[random.Next(0, _names.Count - 1)], "https://picsum.photos/400/300", "a.b@gmail.com", "06 07 29 01 78");
+                var user = new UserEntity(i, _names[random.Next(0, _names.Count - 1)], "https://picsum.photos/400/300", "a.b@gmail.com", "06 07 29 01 78", new DateTime(random.Next(1950, 2021), random.Next(1, 12), random.Next(1, 24)));
                 users.Add(user);
             }
 
