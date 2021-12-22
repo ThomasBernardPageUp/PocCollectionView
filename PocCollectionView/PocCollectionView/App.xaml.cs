@@ -9,7 +9,7 @@ namespace PocCollectionView
         public App()
         {
             InitializeComponent();
-
+            Sharpnado.CollectionView.Initializer.Initialize(true, false);
             MainPage = new MainPage();
         }
 
