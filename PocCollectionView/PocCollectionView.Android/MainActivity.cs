@@ -13,10 +13,12 @@ namespace PocCollectionView.Droid
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+
             base.OnCreate(savedInstanceState);
-            Initializer.Initialize();
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+            Initializer.Initialize();
+
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
         }

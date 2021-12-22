@@ -10,7 +10,6 @@ namespace PocCollectionView.ViewModels
     public class SharpnadoCollectionViewModel : BaseViewModel
     {
         public IEnumerable<UserEntity> Users => UserFactory.GenerateUser(5);
-        public CollectionViewLayout CollectionLayout { get; set; } = CollectionViewLayout.Horizontal;
 
 
         public SharpnadoCollectionViewModel(INavigation navigation) : base(navigation)
