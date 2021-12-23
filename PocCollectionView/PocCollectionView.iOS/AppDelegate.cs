@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using Sharpnado.CollectionView.iOS;
 using UIKit;
 
 namespace PocCollectionView.iOS
@@ -22,6 +23,8 @@ namespace PocCollectionView.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            Initializer.Initialize();
+
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 

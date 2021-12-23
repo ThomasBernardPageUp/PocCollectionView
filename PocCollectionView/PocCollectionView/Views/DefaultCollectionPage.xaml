@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PocCollectionView.Views.DefaultCollectionPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Margin="20" Text="This is a default collection view" FontSize="Title" HorizontalOptions="CenterAndExpand" />
+
+            <Label Margin="20, 0" Text="{Binding Users.Count, StringFormat='You found {0} results :'}"></Label>
+            <CollectionView ItemsSource="{Binding Users}" Margin="10" x:Name="list">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Margin="5">
+                            <Frame CornerRadius="30" BackgroundColor="#E3E6E8">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame Padding="0" IsClippedToBounds="True" CornerRadius="100">
+                                        <Image Source="{Binding Picture}"></Image>
+                                    </Frame>
+
+                                    <StackLayout VerticalOptions="Center">
+                                        <Label Text="{Binding Id, StringFormat='Id : {0}'}"></Label>
+                                        <Label Text="{Binding Firstname, StringFormat='Name : {0}'}"></Label>
+                                        <DatePicker Date="{Binding BornDate}" VerticalOptions="End"></DatePicker>
+                                    </StackLayout>
+                                    <CheckBox HorizontalOptions="EndAndExpand"></CheckBox>
+                                </StackLayout>
+                            </Frame>
+
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BindingContext.UserTappedCommand, Source={x:Reference list}}"></TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PocCollectionView.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,8 +10,8 @@ namespace PocCollectionView
         public App()
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
+            Sharpnado.CollectionView.Initializer.Initialize(true, false);
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()
