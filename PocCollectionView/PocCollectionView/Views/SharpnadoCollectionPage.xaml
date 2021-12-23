@@ -7,14 +7,31 @@
             <Label Margin="20" Text="This is a sharpnado collection view" FontSize="Title" HorizontalOptions="CenterAndExpand" />
 
             <Label Margin="20, 0" Text="{Binding Users.Count, StringFormat='You found {0} results :'}"></Label>
-            <sho:CollectionView ItemsSource="{Binding Users}" >
+            <sho:CollectionView x:Name="list" ItemsSource="{Binding Users}" ItemHeight="170">
                 <sho:CollectionView.ItemTemplate>
                     <DataTemplate>
                         <sho:DraggableViewCell>
-                            <ContentView BackgroundColor="Red">
-                                <Grid>
-                                    <Label Text="ezf"></Label>
-                                </Grid>
+                            <ContentView>
+                                <StackLayout Margin="5">
+                                    <Frame CornerRadius="30" BackgroundColor="#E3E6E8">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Frame Padding="0" IsClippedToBounds="True" CornerRadius="100">
+                                                <Image Source="{Binding Picture}"></Image>
+                                            </Frame>
+
+                                            <StackLayout VerticalOptions="Center">
+                                                <Label Text="{Binding Id, StringFormat='Id : {0}'}"></Label>
+                                                <Label Text="{Binding Firstname, StringFormat='Name : {0}'}"></Label>
+                                                <DatePicker Date="{Binding BornDate}" VerticalOptions="End"></DatePicker>
+                                            </StackLayout>
+                                            <CheckBox HorizontalOptions="EndAndExpand"></CheckBox>
+                                        </StackLayout>
+                                    </Frame>
+
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding BindingContext.UserTappedCommand, Source={x:Reference list}}"></TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
                             </ContentView>
                         </sho:DraggableViewCell>
                     </DataTemplate>
