@@ -14,7 +14,7 @@ namespace PocCollectionView.ViewModels
         public ICommand UserTappedCommand { get; set; }
         public DefaultCollectionViewModel(INavigation navigation) : base(navigation)
         {
-            Users = new ObservableCollection<UserEntity>(UserFactory.GenerateUser());
+            Users = new ObservableCollection<UserEntity>(UserFactory.GenerateUser(2000));
             UserTappedCommand = new Command(DisplayUser);
         }
 

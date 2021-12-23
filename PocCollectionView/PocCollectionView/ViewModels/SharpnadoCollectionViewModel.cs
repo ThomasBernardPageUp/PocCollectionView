@@ -18,7 +18,8 @@ namespace PocCollectionView.ViewModels
 
         public SharpnadoCollectionViewModel(INavigation navigation) : base(navigation)
         {
-            Users = new ObservableCollection<UserEntity>(UserFactory.GenerateUser(100));
+            Users = new ObservableCollection<UserEntity>(UserFactory.GenerateUser(2000));
+            UserTappedCommand = new Command(DisplayUser);
         }
 
         public void DisplayUser()
