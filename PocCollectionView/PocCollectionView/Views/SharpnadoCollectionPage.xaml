@@ -7,11 +7,11 @@
             <Label Margin="20" Text="This is a sharpnado collection view" FontSize="Title" HorizontalOptions="CenterAndExpand" />
 
             <Label Margin="20, 0" Text="{Binding Users.Count, StringFormat='You found {0} results :'}"></Label>
-            <sho:CollectionView x:Name="list" ItemsSource="{Binding Users}" ItemHeight="170">
-                <sho:CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <sho:DraggableViewCell>
-                            <ContentView>
+                <sho:CollectionView HeightRequest="500" CollectionLayout="Vertical" ItemsSource="{Binding Users}" ItemHeight="165" x:Name="list">
+                    <sho:CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <sho:DraggableViewCell>
+                                <ContentView>
                                 <StackLayout Margin="5">
                                     <Frame CornerRadius="30" BackgroundColor="#E3E6E8">
                                         <StackLayout Orientation="Horizontal">
@@ -33,10 +33,11 @@
                                     </StackLayout.GestureRecognizers>
                                 </StackLayout>
                             </ContentView>
-                        </sho:DraggableViewCell>
-                    </DataTemplate>
-                </sho:CollectionView.ItemTemplate>
-            </sho:CollectionView>
+                            </sho:DraggableViewCell>
+                        </DataTemplate>
+                    </sho:CollectionView.ItemTemplate>
+                </sho:CollectionView>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
