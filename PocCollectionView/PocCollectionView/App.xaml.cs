@@ -11,7 +11,11 @@ namespace PocCollectionView
         {
             InitializeComponent();
             Sharpnado.CollectionView.Initializer.Initialize(true, false);
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new MainPage())
+            {
+                BarBackgroundColor = Color.Black,
+            };
+            MainPage.ToolbarItems.Add(new ToolbarItem("Ok", "test", new Action(() => Console.WriteLine("ok"))));
         }
 
         protected override void OnStart()
